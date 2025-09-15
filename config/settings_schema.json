@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_message",
+        "label": "Store message",
+        "default": "Welcome to our store!"
+      }
+    ]
+  }
+]
