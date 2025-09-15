@@ -7,9 +7,10 @@
     {{content_for_header}}
     {{ 'output.css' | asset_url | stylesheet_tag }}
 </head>
-<body>
+<body class="m-0 p-0 font-satoshi">
 {% include "header.liquid" %}
     {{content_for_layout}}
     <h1 class="text-red-500 text-2xl">Test from theme liquired</h1>
+    {% include "footer.liquid" %}
 </body>
 </html>

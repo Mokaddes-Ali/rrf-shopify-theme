@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+.custom-container{
+    @apply w-full px-[5%] lg:px-[7%] mx-auto;
+}
