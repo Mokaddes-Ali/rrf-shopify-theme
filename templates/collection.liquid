@@ -1,0 +1,391 @@
+
+
+    <!-- Breadcrumb Navigation -->
+    <div class="w-full px-[100px] pt-[26px] mx-auto flex items-center gap-[7.90px]">
+        <a href="#" class="text-[#000000] font-satoshi text-[16px] not-italic font-normal leading-none">Home</a>
+        <span>
+                    {% include 'angle-right' %}
+        </span>
+        <a href="#" class="text-[#000000] font-satoshi text-[16px] not-italic font-normal leading-none">Casual</a>
+    </div>
+
+
+    <!-- Category section -->
+    <div class="category-area w-full flex gap-5 px-[100px] pt-7">
+        <!--left Sidebar -->
+        <div
+            class="left-sidebar flex px-[22px] py-[19.90px] flex-col items-start gap-[24px] flex-shrink-0 rounded-[20px] border border-[rgba(0,0,0,0.10)] bg-white shadow-sm">
+            <!-- filter -->
+            <div class="filter flex justify-between items-start w-full">
+                <h1 class="text-black font-satoshi text-[20px] font-bold leading-none">Filters</h1>
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path
+                            d="M13.125 12.125V20.75C13.125 21.0484 13.0065 21.3345 12.7955 21.5455C12.5845 21.7565 12.2984 21.875 12 21.875C11.7016 21.875 11.4155 21.7565 11.2045 21.5455C10.9935 21.3345 10.875 21.0484 10.875 20.75V12.125C10.875 11.8266 10.9935 11.5405 11.2045 11.3295C11.4155 11.1185 11.7016 11 12 11C12.2984 11 12.5845 11.1185 12.7955 11.3295C13.0065 11.5405 13.125 11.8266 13.125 12.125ZM18.75 18.5C18.4516 18.5 18.1655 18.6185 17.9545 18.8295C17.7435 19.0405 17.625 19.3266 17.625 19.625V20.75C17.625 21.0484 17.7435 21.3345 17.9545 21.5455C18.1655 21.7565 18.4516 21.875 18.75 21.875C19.0484 21.875 19.3345 21.7565 19.5455 21.5455C19.7565 21.3345 19.875 21.0484 19.875 20.75V19.625C19.875 19.3266 19.7565 19.0405 19.5455 18.8295C19.3345 18.6185 19.0484 18.5 18.75 18.5ZM21 14.75H19.875V4.25C19.875 3.95163 19.7565 3.66548 19.5455 3.4545C19.3345 3.24353 19.0484 3.125 18.75 3.125C18.4516 3.125 18.1655 3.24353 17.9545 3.4545C17.7435 3.66548 17.625 3.95163 17.625 4.25V14.75H16.5C16.2016 14.75 15.9155 14.8685 15.7045 15.0795C15.4935 15.2905 15.375 15.5766 15.375 15.875C15.375 16.1734 15.4935 16.4595 15.7045 16.6705C15.9155 16.8815 16.2016 17 16.5 17H21C21.2984 17 21.5845 16.8815 21.7955 16.6705C22.0065 16.4595 22.125 16.1734 22.125 15.875C22.125 15.5766 22.0065 15.2905 21.7955 15.0795C21.5845 14.8685 21.2984 14.75 21 14.75ZM5.25 15.5C4.95163 15.5 4.66548 15.6185 4.4545 15.8295C4.24353 16.0405 4.125 16.3266 4.125 16.625V20.75C4.125 21.0484 4.24353 21.3345 4.4545 21.5455C4.66548 21.7565 4.95163 21.875 5.25 21.875C5.54837 21.875 5.83452 21.7565 6.0455 21.5455C6.25647 21.3345 6.375 21.0484 6.375 20.75V16.625C6.375 16.3266 6.25647 16.0405 6.0455 15.8295C5.83452 15.6185 5.54837 15.5 5.25 15.5ZM7.5 11.75H6.375V4.25C6.375 3.95163 6.25647 3.66548 6.0455 3.4545C5.83452 3.24353 5.54837 3.125 5.25 3.125C4.95163 3.125 4.66548 3.24353 4.4545 3.4545C4.24353 3.66548 4.125 3.95163 4.125 4.25V11.75H3C2.70163 11.75 2.41548 11.8685 2.2045 12.0795C1.99353 12.2905 1.875 12.5766 1.875 12.875C1.875 13.1734 1.99353 13.4595 2.2045 13.6705C2.41548 13.8815 2.70163 14 3 14H7.5C7.79837 14 8.08452 13.8815 8.2955 13.6705C8.50647 13.4595 8.625 13.1734 8.625 12.875C8.625 12.5766 8.50647 12.2905 8.2955 12.0795C8.08452 11.8685 7.79837 11.75 7.5 11.75ZM14.25 7.25H13.125V4.25C13.125 3.95163 13.0065 3.66548 12.7955 3.4545C12.5845 3.24353 12.2984 3.125 12 3.125C11.7016 3.125 11.4155 3.24353 11.2045 3.4545C10.9935 3.66548 10.875 3.95163 10.875 4.25V7.25H9.75C9.45163 7.25 9.16548 7.36853 8.9545 7.5795C8.74353 7.79048 8.625 8.07663 8.625 8.375C8.625 8.67337 8.74353 8.95952 8.9545 9.1705C9.16548 9.38147 9.45163 9.5 9.75 9.5H14.25C14.5484 9.5 14.8345 9.38147 15.0455 9.1705C15.2565 8.95952 15.375 8.67337 15.375 8.375C15.375 8.07663 15.2565 7.79048 15.0455 7.5795C14.8345 7.36853 14.5484 7.25 14.25 7.25Z"
+                            fill="black" fill-opacity="0.4" />
+                    </svg>
+                </div>
+            </div>
+            <!-- divider -->
+            <div class="sidebar-divider">
+                <div class="w-[247px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+            </div>
+
+            <!-- filter-by-category -->
+<div class="filter-by-category w-full">
+  <ul class="flex flex-col gap-5">
+    {% for i in (1..6) %}
+      <li class="flex justify-between items-center text-[16px] font-satoshi font-normal text-[rgba(0,0,0,0.60)] leading-none">
+        <span>T-shirt {{ i }}</span>
+         {% include 'angle-right' %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+            <!-- divider -->
+            <div class="sidebar-divider">
+                <div class="w-[247px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+            </div>
+
+            <!-- Filter by price range -->
+            <div class="filter flex pt-[2px] justify-between items-start w-full">
+                <h1 class="text-black font-satoshi text-[20px] font-bold leading-none"> Price</h1>
+                <span class="icon rotate-90">
+                    {% include 'angle-right' %}
+                </span>
+            </div>
+
+
+            <!-- Price range -->
+            <div class="relative max-w-[247px] h-[40px] font-[Satoshi] text-[14px] font-medium text-black">
+                <!-- SVG Progress Bar -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="247" height="20" viewBox="0 0 247 20" fill="none">
+                    <!-- Background Track -->
+                    <rect y="8" width="247" height="6" rx="3" fill="#F0F0F0" />
+                    <!-- Active Range Track -->
+                    <rect x="43.127" y="8" width="150.291" height="6" rx="3" fill="black" />
+                    <!-- Left Knob -->
+                    <circle cx="51" cy="10" r="10" fill="black" />
+                    <!-- Right Knob -->
+                    <circle cx="197" cy="10" r="10" fill="black" />
+                </svg>
+
+                <!-- Price Texts -->
+                <div class="absolute top-[24px] left-[38px]">$50</div>
+                <div class="absolute top-[24px] right-[30px]">$200</div>
+            </div>
+
+
+            <!-- divider -->
+            <div class="sidebar-divider">
+                <div class="w-[247px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+            </div>
+
+            <!-- Filter by Colors -->
+            <button class="filter flex justify-between pt-[5px] items-start w-full">
+                <h1 class="text-black font-satoshi text-[20px] font-bold leading-none"> Colors</h1>
+                 <span class="icon -rotate-90">
+                    {% include 'angle-right' %}
+                </span>
+            </button>
+            <!-- select color -->
+            <!-- row 1 -->
+            <div class="flex w-full justify-between items-center">
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5001" r="18.5" fill="#00C12B" />
+                        <circle cx="18.5" cy="18.5001" r="17.5" stroke="black" stroke-opacity="0.2" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none">
+                        <circle cx="19" cy="18.5001" r="18.5" fill="#F50606" />
+                        <circle cx="19" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5001" r="18.5" fill="#F5DD06" />
+                        <circle cx="18.5" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none">
+                        <circle cx="19" cy="18.5001" r="18.5" fill="#F57906" />
+                        <circle cx="19" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5001" r="18.5" fill="#06CAF5" />
+                        <circle cx="18.5" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- row 2 -->
+            <div class="flex w-full justify-between items-center">
+                <div class="w-[37px] h-[37px] rounded-full bg-[#063AF5] relative flex items-center justify-center">
+                    <!-- Stroke Outline Circle -->
+                    <div class="absolute inset-0">
+                        <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="18.5" cy="18.5" r="17.5" stroke="black" stroke-opacity="0.2" stroke-width="2" />
+                        </svg>
+                    </div>
+
+                    <!-- White Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                        class="z-10">
+                        <path
+                            d="M14.5306 5.03063L6.5306 13.0306C6.46092 13.1005 6.37813 13.156 6.28696 13.1939C6.1958 13.2317 6.09806 13.2512 5.99935 13.2512C5.90064 13.2512 5.8029 13.2317 5.71173 13.1939C5.62057 13.156 5.53778 13.1005 5.4681 13.0306L1.9681 9.53063C1.89833 9.46087 1.84299 9.37804 1.80524 9.28689C1.76748 9.19574 1.74805 9.09804 1.74805 8.99938C1.74805 8.90072 1.76748 8.80302 1.80524 8.71187C1.84299 8.62072 1.89833 8.53789 1.9681 8.46813C2.03786 8.39837 2.12069 8.34302 2.21184 8.30527C2.30299 8.26751 2.40069 8.24808 2.49935 8.24808C2.59801 8.24808 2.69571 8.26751 2.78686 8.30527C2.87801 8.34302 2.96083 8.39837 3.0306 8.46813L5.99997 11.4375L13.4693 3.96938C13.6102 3.82848 13.8013 3.74933 14.0006 3.74933C14.1999 3.74933 14.391 3.82848 14.5318 3.96938C14.6727 4.11028 14.7519 4.30137 14.7519 4.50063C14.7519 4.69989 14.6727 4.89098 14.5318 5.03188L14.5306 5.03063Z"
+                            fill="white" />
+                    </svg>
+                </div>
+
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none">
+                        <circle cx="19" cy="18.5001" r="18.5" fill="#7D06F5" />
+                        <circle cx="19" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5001" r="18.5" fill="#F506A4" />
+                        <circle cx="18.5" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="37" viewBox="0 0 38 37" fill="none">
+                        <circle cx="19" cy="18.5001" r="18.5" fill="white" />
+                        <circle cx="19" cy="18.5001" r="18" stroke="black" stroke-opacity="0.2" />
+                    </svg>
+                </div>
+                <div class="w-[37px] h-[37px] rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5001" r="18.5" fill="black" />
+                    </svg>
+                </div>
+            </div>
+
+
+            <!-- divider -->
+            <div class="sidebar-divider -mt-[2px]">
+                <div class="w-[247px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+            </div>
+
+            <!-- Filter by Sizes -->
+            <button class="filter flex justify-between pt-[2px] items-start w-full">
+                <h1 class="text-black font-satoshi text-[20px] font-bold leading-none">Size</h1>
+                <span class="icon -rotate-90">
+                    {% include 'angle-right' %}
+                </span>
+            </button>
+
+            <!-- sizes button -->
+            <div class="sizes-btn flex flex-col gap-[6px]">
+
+                <div class="flex gap-[11px]">
+                    <button
+                        class="flex items-center justify-center gap-3 px-5 py-[10px] rounded-[62px] bg-[#F0F0F0] text-[14px] font-[400] text-black/60 font-satoshi">
+                        XX-Small
+                    </button>
+
+                    <button
+                        class="flex items-center justify-center gap-3 bg-[#F0F0F0] rounded-[62px] px-5 py-[10px] text-[14px] font-[400] text-black/60 font-satoshi">
+                        X-Small
+                    </button>
+                </div>
+
+                <div class="flex gap-[11px]">
+                    <button
+                        class="flex items-center justify-center gap-3 px-5 py-[10px] rounded-[62px] bg-[#F0F0F0] text-[14px] font-[400] text-black/60 font-satoshi">
+                        Small
+                    </button>
+
+                    <button
+                        class="flex items-center justify-center gap-3 bg-[#F0F0F0] rounded-[62px] px-5 py-[10px] text-[14px] font-[400] text-black/60 font-satoshi">
+                        Medium
+                    </button>
+                </div>
+
+                <div class="flex gap-[11px]">
+                    <button
+                        class="flex items-center justify-center gap-3 px-5 py-[10px] rounded-[62px] bg-black text-[14px] font-[400] text-white font-satoshi">
+                        Large
+                    </button>
+
+                    <button
+                        class="flex items-center justify-center gap-3 bg-[#F0F0F0] rounded-[62px] px-5 py-[10px] text-[14px] font-[400] text-black/60 font-satoshi">
+                        X-Large
+                    </button>
+                </div>
+
+
+                <div class="flex gap-[11px]">
+                    <button
+                        class="flex items-center justify-center gap-3 px-5 py-[10px] rounded-[62px] bg-[#F0F0F0] text-[14px] font-[400] text-black/60 font-satoshi">
+                        XX-Large
+                    </button>
+
+                    <button
+                        class="flex items-center justify-center gap-3 bg-[#F0F0F0] rounded-[62px] px-5 py-[10px] text-[14px] font-[400] text-black/60 font-satoshi">
+                        3X-Large
+                    </button>
+                </div>
+
+                <div class="flex gap-[11px]">
+                    <button
+                        class="flex items-center justify-center gap-3 bg-[#F0F0F0] rounded-[62px] px-5 py-[10px] text-[14px] font-[400] text-black/60 font-satoshi">
+                        4X-Large
+                    </button>
+                </div>
+            </div>
+
+            <!-- divider -->
+            <div class="sidebar-divider">
+                <div class="w-[247px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+            </div>
+
+            <!-- filter by Dress Style -->
+            <button class="filter flex justify-between items-start w-full">
+                <h1 class="text-black font-satoshi text-[20px] font-bold leading-none">Dress Style</h1>
+                <span class="icon -rotate-90">
+                    {% include 'angle-right' %}
+                </span>
+            </button>
+        <div class="filter-by-category w-full">
+            <!-- filter-by-Dress Style-->
+    <ul class="flex flex-col gap-5">
+    {% for i in (1..4) %}
+      <li class="flex justify-between items-center text-[16px] font-satoshi font-normal text-[rgba(0,0,0,0.60)] leading-none">
+        <span>Casual {{ i }}</span>
+        <div class="icon">
+            {% include 'angle-right' %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+
+            <!-- Apply Button -->
+            <div class="apply-btn flex  justify-center items-center gap-[12px]">
+                <button
+                    class="h-[48px] px-[54px] w-[250px] py-[16px] rounded-[62px] bg-black text-white font-satoshi text-[14px] font-medium leading-none">
+                    Apply Filter
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Product Section -->
+        <div class="flex flex-col pt-[5px]">
+            <!-- Heading and Sorting Button -->
+            <div class="flex justify-between items-start w-full">
+                <!-- Heading -->
+                <div class="heading">
+                    <h1 class="text-black font-satoshi text-[32px] font-bold leading-none">Casual</h1>
+                </div>
+
+                <!-- Sorting Info and Button -->
+                <div class="flex justify-center items-center  gap-[15px]">
+                    <h2 class="text-black/60 font-satoshi text-[15.50px] font-normal leading-none">
+                        Showing 1-10 of 100 Products
+                    </h2>
+
+                    <div class="flex items-center gap-[6px]">
+                        <span class="text-black/60 font-satoshi text-[16px] font-normal leading-none">Sort by:</span>
+                        <button
+                            class="h-[40px] flex items-center gap-[7px] rounded-[62px] text-black font-satoshi text-[16px] font-normal leading-normal">
+                            Most Popular <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 16 16" fill="none">
+                                    <path
+                                        d="M13.5306 6.53063L8.5306 11.5306C8.46092 11.6005 8.37813 11.656 8.28696 11.6939C8.1958 11.7317 8.09806 11.7512 7.99935 11.7512C7.90064 11.7512 7.8029 11.7317 7.71173 11.6939C7.62057 11.656 7.53778 11.6005 7.4681 11.5306L2.4681 6.53063C2.3272 6.38973 2.24805 6.19864 2.24805 5.99938C2.24805 5.80012 2.3272 5.60902 2.4681 5.46813C2.60899 5.32723 2.80009 5.24808 2.99935 5.24808C3.19861 5.24808 3.3897 5.32723 3.5306 5.46813L7.99997 9.9375L12.4693 5.4675C12.6102 5.32661 12.8013 5.24745 13.0006 5.24745C13.1999 5.24745 13.391 5.32661 13.5318 5.4675C13.6727 5.6084 13.7519 5.7995 13.7519 5.99875C13.7519 6.19801 13.6727 6.38911 13.5318 6.53L13.5306 6.53063Z"
+                                        fill="black" />
+                                </svg></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- product list -->
+             <div class="product-list pt-[13px] flex flex-col gap-6">
+
+            <!-- product card row 1 -->
+            <div class="product-cards flex gap-[19.50px]">
+
+             {% for item in (1..3) %}
+                    {% include 'single-product' %}
+                    {% endfor %}
+
+            </div>
+            <!-- product card row 2 -->
+            <div class="product-cards flex gap-[19.50px]">
+
+               {% for item in (1..3) %}
+                    {% include 'single-product' %}
+                    {% endfor %}
+
+            </div>
+            <!-- product card row 3 -->
+            <div class="product-cards flex gap-[19.50px]">
+
+                {% for item in (1..3) %}
+                    {% include 'single-product' %}
+                    {% endfor %}
+
+            </div>
+            </div>
+
+            <!-- divider -->
+             <div class="divider pt-[30px]">
+                <div class="w-full h-[1px] bg-black/10"></div>
+             </div>
+
+             <!-- Pages -->
+              <div class="pages flex justify-around items-center pt-[18px]">
+
+                <!-- preview -->
+                 <div class="preview">
+                    <button class="flex items-center justify-center gap-2 px-[14px] py-[8px] rounded-[8px] border border-black/10 bg-white text-black font-satoshi text-[14px] font-medium leading-[20px]">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+    <path d="M15.8332 9.99996H4.1665M4.1665 9.99996L9.99984 15.8333M4.1665 9.99996L9.99984 4.16663" stroke="black" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>Previous</span>
+</button>
+
+                 </div>
+
+
+                    <div class="page-number flex w-[292px] h-[40px] items-center justify-between gap-[4px]">
+  <!-- Page Buttons -->
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-[rgba(0,0,0,0.06)] text-black font-satoshi text-[14px] font-medium leading-[20px]">1</button>
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-white text-black font-satoshi text-[14px] font-medium leading-[20px] hover:bg-black hover:text-white transition">2</button>
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-white text-black font-satoshi text-[14px] font-medium leading-[20px] hover:bg-black hover:text-white transition">3</button>
+  <span class="text-black/60 font-satoshi text-[14px] font-medium leading-[20px]">...</span>
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-white text-black font-satoshi text-[14px] font-medium leading-[20px] hover:bg-black hover:text-white transition">8</button>
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-white text-black font-satoshi text-[14px] font-medium leading-[20px] hover:bg-black hover:text-white transition">9</button>
+
+  <!-- Active Page -->
+  <button class="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border-none bg-white text-black font-satoshi text-[14px] font-medium leading-[20px] hover:bg-black hover:text-white transition">10</button>
+
+                 </div>
+
+                 <!-- next -->
+                  <div class="next">
+                    <button class="flex items-center justify-center gap-2 px-[14px] py-[8px] rounded-[8px] border border-black/10 bg-white text-black font-satoshi text-[14px] font-medium leading-[20px]">
+  <span>Next</span>
+ <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M4.1665 9.99996H15.8332M15.8332 9.99996L9.99984 4.16663M15.8332 9.99996L9.99984 15.8333" stroke="black" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                  </div>
+              </div>
+        </div>
+
+    </div>
