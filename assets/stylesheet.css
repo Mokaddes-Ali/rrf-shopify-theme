@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Integral CF';
+    src: url('IntegralCF-Bold.woff2') format('woff2'),
+        url('IntegralCF-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'false';
+    src: url('false.woff2') format('woff2'),
+        url('false.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('false.woff2') format('woff2'),
+        url('false.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'false';
+    src: url('false.woff2') format('woff2'),
+        url('false.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Integral CF Extra';
+    src: url('IntegralCF-ExtraBold.woff2') format('woff2'),
+        url('IntegralCF-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('false.woff2') format('woff2'),
+        url('false.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
