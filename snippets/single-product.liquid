@@ -2,15 +2,15 @@
                     <div class="product-card flex flex-col gap-2.5 w-full md:max-w-[260px]">
                         <!-- card image -->
                         <div class="image w-full 2xl:w-[295px] h-[298px]">
-                            <img src="{{ 'newarrival1.png' | asset_url}}" />
+                            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" />
                         </div>
 
                         <!-- card content -->
                         <div class="card-content-wrapper pt-3">
                             <!-- product text -->
                             <div class="text-area-wrapper flex flex-col gap-1.5">
-                                <h1 class="text-black font-satoshi text-[19.80px] not-italic font-bold leading-normal">
-                                    T-shirt With Tape Details
+                                <h1 class="text-[20px] text-black font-satoshi  not-italic font-bold leading-normal">
+                                    {{ product.title }} 
                                 </h1>
 
                                 <!-- rating -->

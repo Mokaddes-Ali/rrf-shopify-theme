@@ -16,14 +16,10 @@
 @font-face {
   font-family: 'Satoshi';
    src: url('false.woff') format('truetype');
-  font-weight: 700;
+  font-weight: 400;
 }
 
-@font-face {
-  font-family: 'Satoshi';
-  src: url('false.woff2') format('truetype');
-  font-weight: 500;
-}
+
 
 
 @import "tailwindcss";

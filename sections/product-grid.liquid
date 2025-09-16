@@ -1,0 +1,96 @@
+<!--  NEW ARRIVALS section -->
+<section class="new-araival-area">
+    <div class="custom-container flex flex-col gap-5 pt-[28px]">
+        <!-- heading -->
+        <div class="heading flex justify-center items-center pt-[50px]">
+            <h1 class="text-black text-center font-[700] text-[47px] leading-none font-integralcf">
+                NEW ARRIVALS
+            </h1>
+        </div>
+
+
+        <div class="flex flex-col pt-6">
+            <div class="product-list pt-3 flex flex-col gap-9">
+
+                <!-- product card row 1 -->
+              <div class="product-cards {% if section.settings.select_grid == 'grid1' %}grid grid-cols-3 gap-12 {% else %} grid grid-cols-4 gap-4{% endif %}">
+                {% if section.settings.select_grid == 'grid1' %}
+            {% assign product_limit = 3 %}
+          {% else %}
+            {% assign product_limit = 4 %}
+          {% endif %}
+    {% for product in section.settings.collection.products limit: product_limit%}
+        {% include 'single-product', product: product %}
+    {% endfor %}
+</div>
+
+
+                <!-- See All Button -->
+                <div class="see-btn flex justify-center items-center">
+                    <button
+                        class="flex w-[218px] h-[52px] px-[54px] py-[16px] justify-center items-center gap-[12px] flex-shrink-0 rounded-[62px] border border-[rgba(0,0,0,0.10)] text-black text-[16px] font-[500] leading-none font-satoshi">
+                        <a href="{{ section.settings.url }}">
+                        {{ section.settings.link_text }}
+                        </a>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- divider -->
+    <div class="divider custom-container py-10 mx-auto">
+        <div class="w-full h-[1px] bg-[rgba(0,0,0,0.10)] ">
+
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name" : "Product Grid",
+    "settings" : [{
+         "type": "text",
+         "id": "title",
+         "label": "Title",
+         "default": "New Arrivals"
+    },
+    {
+        "id" : "collection",
+        "type" : "collection",
+        "label" : "collection",
+    },
+
+      {
+        "id" : "url",
+        "type" : "url",
+        "label" : "Link",
+    },
+    {
+    "type": "text",
+         "id": "link_text",
+         "label": "Link Text",
+         "default": "View All"
+    },
+
+    {
+  "type": "select",
+  "id": "select_grid",
+  "label": "Product Grid Show",
+  "options": [
+    {
+      "value": "grid1",
+      "label": "Show 3 Product"
+    },
+    {
+      "value": "grid2",
+      "label": "Show 4 Product"
+    }
+  ],
+  "default": "grid2"
+},
+    ]
+}
+
+{% endschema %}
