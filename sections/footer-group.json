@@ -2,8 +2,8 @@
  "type": "footer",
  "name": "Footer group",
  "sections": {
-   "quick-links": {
-     "type": "quick-links",
+   "footer": {
+     "type": "footer",
      "settings": {}
    },
    "newsletter-signup": {
@@ -13,6 +13,6 @@
  },
  "order": [
     "newsletter-signup",
-    "quick-links"
+    "footer"
  ]
 }

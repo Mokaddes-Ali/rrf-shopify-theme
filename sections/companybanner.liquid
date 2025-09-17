@@ -1,21 +1,12 @@
- <!-- company trust banner -->
-<section class="banner relative z-50 -mt-[6px] w-full h-[122px] bg-[#000000] px-[5%] lg:px-[7.5%] flex justify-around items-center gap-[105px]">
-  <div class="banner-img w-[166.48px] h-[33.16px]">
-    <img src="{{'banner1.png' | asset_url}}" />
-  </div>
-  <div class="banner-img w-[91px] h-[38px]">
-    <img src="{{ 'banner2.png'  | asset_url}}" />
-  </div>
-  <div class="banner-img w-[156px] h-[36px]">
-    <img src="{{ 'banner3.png' | asset_url}}" />
-  </div>
-  <div class="banner-img w-[194px] h-[32px]">
-    <img src="{{ 'banner4.png' | asset_url}}" />
-  </div>
-  <div class="banner-img w-[206.79px] h-[33.35px]">
-    <img src="{{'banner5.png' | asset_url}}" />
-  </div>
+<!-- company trust banner -->
+<section class="banner relative z-50 -mt-[6px] w-full h-[122px] bg-[#000000] px-[5%] lg:px-[7.5%] flex justify-around items-center gap-16">
+   {% for block in section.blocks %}
+      <div class="banner-img w-[250px] flex items-center justify-center overflow-hidden">
+        {{ block.settings.banner_image | image_url: width: 250 | image_tag: class: "w-full h-full object-contain" }}
+      </div>
+   {% endfor %}
 </section>
+
 
 {% schema %}
  { 
@@ -27,6 +18,24 @@
     {
       "name": "Company Banner"
     }
-  ]
+  ],
+   "blocks": [
+     {
+       "name": "Company Banner",
+       "type": "logos",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "banner_image",
+           "label": "Upload Banner Image"
+         },
+         {%- comment -%} {
+         "type" : "url",
+         "id" : "url",
+         "label" : "URL"
+         }, {%- endcomment -%}
+       ]
+     }
+   ]
  } 
 {% endschema %}
