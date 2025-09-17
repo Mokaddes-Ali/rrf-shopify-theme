@@ -14,17 +14,23 @@
             </div>
         </div>
 
-        {% schema %}
-        {
-          "name": "Announcement Bar",
-          "settings" : [{
-             "type": "richtext",
-             "id": "anouncement_title",
-             "label": "Announcement Bar",
-              "default": "<p>Sign up and get 20% off to your first order. <strong>Sign Up Now</strong></p>"
-            
-          }]
+       {% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "anouncement_title",
+      "label": "Announcement Bar",
+      "default": "<p>Sign up and get 20% off to your first order. <strong>Sign Up Now</strong></p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
 
-        }
-         {% endschema %}
 

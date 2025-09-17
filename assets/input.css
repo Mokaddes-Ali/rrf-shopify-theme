@@ -15,7 +15,13 @@
 
 @font-face {
   font-family: 'Satoshi';
-   src: url('false.woff') format('truetype');
+   src: url('Satoshi-Regular.woff') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+   src: url('Satoshi-Regular.woff2') format('truetype');
   font-weight: 400;
 }
 

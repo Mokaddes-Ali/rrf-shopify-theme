@@ -1,0 +1,30 @@
+{
+    "sections": {
+        "hero_section" : {
+            "type" : "hero"
+        },
+
+        "company_banner" : {
+            "type" : "companybanner"
+        },
+
+        "product_grid" : {
+            "type" : "product-grid"
+        },
+          "category_box" : {
+            "type" : "category-box"
+        },
+        "testimonial" : {
+            "type" : "testimonial"
+        }
+
+    },
+
+    "order" : [
+        "hero_section",
+        "company_banner",
+        "product_grid",
+        "category_box",
+        "testimonial"
+    ]
+}
