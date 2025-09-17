@@ -285,6 +285,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
   .-mt-\[2px\] {
     margin-top: calc(2px * -1);
   }

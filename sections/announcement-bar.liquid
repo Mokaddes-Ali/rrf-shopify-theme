@@ -1,8 +1,9 @@
   <!-- Header Top -->
-        <div class="header-top bg-[#000000] h-9 flex items-center justify-center relative">
+   <div class="header-top bg-[#000000] h-9 flex items-center justify-center relative py-3">
             <div class="header-top-heading flex justify-between items-center">
                 <h1 class="text-white  font-satoshi text-[14px] font-normal leading-normal">
                     {{ section.settings.anouncement_title }}
+                </h1>
                 <button class="absolute left-1/2 translate-x-[425px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20"
                         height="20" viewBox="0 0 20 20" fill="none">
@@ -25,6 +26,11 @@
       "default": "<p>Sign up and get 20% off to your first order. <strong>Sign Up Now</strong></p>"
     }
   ],
+
+   "enabled_on" :{
+        "groups" : ["header"]
+    },
+
   "presets": [
     {
       "name": "Announcement Bar"

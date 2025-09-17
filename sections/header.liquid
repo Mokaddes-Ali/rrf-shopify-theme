@@ -1,9 +1,8 @@
   <!-- Header -->
-    <header class="flex flex-col gap-6">
-        {% section 'announcement-bar' %}
+    <header class="flex">
         <div class="custom-container">
         <!-- Navbar -->
-        <div class="navbar-area flex items-center justify-around gap-12 pb-3">
+        <div class="navbar-area flex items-center justify-around gap-12 pb-3 pt-2 my-2">
             <!-- Logo -->
             <div class="logo w-2/12">
                 <a href="index.html">
@@ -79,3 +78,16 @@
         </div>
       </div>
     </header>
+      {% schema %}
+{
+  "name": "Header",
+  "enabled_on" :{
+        "groups" : ["header"]
+    },
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

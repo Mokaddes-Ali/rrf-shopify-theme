@@ -1,0 +1,18 @@
+{
+ "type": "footer",
+ "name": "Footer group",
+ "sections": {
+   "quick-links": {
+     "type": "quick-links",
+     "settings": {}
+   },
+   "newsletter-signup": {
+     "type": "newsletter-signup",
+     "settings": {}
+   }
+ },
+ "order": [
+    "newsletter-signup",
+    "quick-links"
+ ]
+}
