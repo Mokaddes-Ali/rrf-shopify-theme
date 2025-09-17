@@ -40,19 +40,21 @@
 <div class="product-details-area w-[1440px] h-[630px] px-[100px] pt-[40px] flex gap-[40px]">
     <!-- product-details-left image -->
     <div class="product-details-left w-[610px] h-[530px] flex gap-[14px]">
-        <div class="product-image-sidebar flex flex-col gap-[14px]">
+        <div class="slider-nav product-image-sidebar flex flex-col gap-[14px]">
             <div class="product-image1 w-[152px] h-[167px]">
-                <img src="./assets/images/productImg1.png" class="" />
+                <img src="{{ 'productImg1.png' | asset_url }}" class="" />
             </div>
             <div class="product-image2 w-[152px] h-[167px]">
-                <img src="./assets/images/productImg2.png" class="" />
+                <img src="{{ 'productImg2.png' | asset_url }}" class="" />
             </div>
             <div class="product-image3 w-[152px] h-[167px]">
-                <img src="./assets/images/productImg3.png" class="" />
+                <img src="{{ 'productImg3.png' | asset_url }}" class="" />
             </div>
         </div>
-        <div class="product-main-image w-[444px] h-[530px]">
-            <img src="./assets/images/productBigImage.png" class="" />
+        <div class="slider-for product-main-image w-[444px] h-[530px]">
+              <div><img src="{{ 'productImg1.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
+    <div><img src="{{ 'productImg2.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
+    <div><img src="{{ 'productImg3.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
         </div>
     </div>
 
@@ -688,5 +690,25 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
             const underlineLeft = tabCenter - 414 / 2;
             $underline.css({ left: underlineLeft + 'px', width: '414px' });
         }
+
+
+        $('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: false,
+  vertical: true,  // important: vertical sidebar
+  centerMode: false,
+  focusOnSelect: true
+});
+
     });
 </script>
