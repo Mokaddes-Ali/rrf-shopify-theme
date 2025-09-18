@@ -192,7 +192,7 @@
         {% form 'product', product %}
         <div class="add-cart flex  gap-[20px] pt-[12px]">
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-             {% render 'quantity' %}
+             {% render 'quantity', type:"product" %}
 
             <div class="cart-btn">
                 <button

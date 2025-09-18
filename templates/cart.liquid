@@ -83,8 +83,7 @@
             </svg>
           </button>
           </a>
-
-          {% render 'quantity' %}
+          {% render 'quantity', type:"cart", quantity:item.quantity, key:item.key %}
         </div>
 
         
@@ -186,28 +185,3 @@
    {% endif %}
 
 </div>
-
-
-<!-- External JS -->
-<script>
-    $(document).ready(function () {
-    // product add and minus button
-    const qtyInput = $('input[name = "quantity"]');
-    const plusBtn = $('.add-cart svg:last-of-type');
-    const minusBtn = $('.add-cart svg:first-of-type');
-
-    plusBtn.on('click', function(){
-        let value = parseInt(qtyInput.val()) || 1;
-                   qtyInput.val(value + 1);
-    });
-
-    minusBtn.on('click', function(){
-        let value = parseInt(qtyInput.val()) || 1;
-        if(value > 1){
-                    qtyInput.val(value - 1);
-        }
-                   
-    });
-  });
-
-</script>
