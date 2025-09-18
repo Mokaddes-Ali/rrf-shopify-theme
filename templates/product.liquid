@@ -1,5 +1,5 @@
 <!-- Breadcrumb Navigation -->
-<div class="w-[1440px] px-[100px] pt-[26px] mx-auto flex items-center gap-[7.90px]">
+<div class="w-full px-[100px] pt-[26px] mx-auto flex items-center gap-[7.90px]">
     <a href="#" class="text-[#000000] font-satoshi text-[16px] not-italic font-normal leading-none">
         Home
     </a>
@@ -37,9 +37,9 @@
 
 
 <!-- Product Details -->
-<div class="product-details-area w-[1440px] h-[630px] px-[100px] pt-[40px] flex gap-[40px]">
+<div class="product-details-area w-full px-[100px] pt-[40px] flex gap-[40px]">
     <!-- product-details-left image -->
-    <div class="product-details-left w-[610px] h-[530px] flex gap-[14px]">
+    <div class="product-details-left w-7/12 flex gap-[14px]">
         <div class="slider-nav product-image-sidebar flex flex-col gap-[14px]">
             <div class="product-image1 w-[152px] h-[167px]">
                 <img src="{{ 'productImg1.png' | asset_url }}" class="" />
@@ -52,17 +52,19 @@
             </div>
         </div>
         <div class="slider-for product-main-image w-[444px] h-[530px]">
-              <div><img src="{{ 'productImg1.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
+              <div>
+                  <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ item.title }}" class="w-full h-[530px] object-contain" />
+            </div>
     <div><img src="{{ 'productImg2.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
     <div><img src="{{ 'productImg3.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
         </div>
     </div>
 
     <!-- product details right -->
-    <div class="product-details-right w-[600px] h-[530px] flex flex-col gap-[12px] pt-[5px] pb-[25px]">
+    <div class="product-details-right w-5/12 flex flex-col gap-[12px] pt-[5px] pb-[25px]">
 
         <!-- product text -->
-        <div class="text-area-wrapper w-[600px] flex flex-col gap-[15.30px]">
+        <div class="text-area-wrapper w-full flex flex-col gap-[15.30px]">
             <h1 class="text-black font-[700] min-w-[610px] text-[39.25px] not-italic leading-none font-integralcf">
                 {{ product.title }}
                 </h1>
@@ -128,12 +130,12 @@
                 {{ product.description}}
                 </p>
             <!-- divider -->
-            <div class="w-[590px] h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
         </div>
 
 
         <!-- Color -->
-        <div class="text-area-wrapper w-[600px] pt-[4px] flex flex-col gap-[20.50px]">
+        <div class="text-area-wrapper w-full pt-[4px] flex flex-col gap-[20.50px]">
             <!-- Select Color -->
             <div class="select-color flex flex-col gap-[12px]">
                 <h1 class="text-[rgba(0,0,0,0.6)]  font-satoshi text-[16px] not-italic font-normal leading-normal">
@@ -158,7 +160,7 @@
                 </div>
             </div>
             <!-- divider -->
-            <div class="w-[590px] h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
         </div>
 
         <!-- Choose Size -->
@@ -178,14 +180,12 @@
                     class="w-[89px] h-[46px] px-6 py-3 rounded-[62px] bg-[#000000] border-0 text-white font-satoshi text-[16px] not-italic font-normal leading-normal">
                     Large
                 </button>
-                <button
-                    class="w-[104px]
-h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] font-satoshi text-[16px] not-italic font-normal leading-normal">
+                <button class="px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] font-satoshi text-[16px] not-italic font-normal leading-normal">
                     X-Large
                 </button>
             </div>
             <!-- divider -->
-            <div class="w-[590px] h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
         </div>
 
           <!-- add to cart btn -->
@@ -240,9 +240,9 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
 
 
 <!-- product-review-section -->
-<div class="product-review-area w-[1440px] px-[100px] py-5 flex flex-col gap-[13.50px]">
+<div class="product-review-area w-full px-[100px] py-5 flex flex-col gap-[13.50px]">
     <!-- Tab heading-->
-    <div class="product-tab flex gap-[269px] pl-[140px] relative">
+    <div class="product-tab flex items-center justify-around relative">
         <div
             class="tab-item product-details text-[rgba(0,0,0,0.60)] font-satoshi text-[20px] font-normal leading-[22px] cursor-pointer">
             Product Details
@@ -257,7 +257,7 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
         </div>
 
         <!-- Underline inside product-tab -->
-        <div id="underline" class="absolute top-[40px] w-[414px] h-[2px] bg-black transition-all duration-300">
+        <div id="underline" class="absolute top-[38px] w-80 h-[2px] bg-black transition-all duration-300">
         </div>
     </div>
     <!-- divider -->
@@ -266,7 +266,7 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
     <!-- Content Tab sections -->
     <div id="tab-contents" class="mt-[3px]">
         <!-- divider -->
-        <div class="w-[1240px] h-px bg-[rgba(0,0,0,0.10)]"></div>
+        <div class="w-full h-px bg-[rgba(0,0,0,0.10)]"></div>
         <div class="tab-content hidden" id="content-details">
             Product Details Content...
         </div>
@@ -668,7 +668,7 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
 
 
 <!-- Related product Section -->
-<div class="related-product-area w-[1440px] px-[100px] pt-[42px] flex flex-col gap-[48px]">
+<div class="related-product-area w-full px-[100px] pt-[42px] flex flex-col gap-[48px]">
 
     <!-- heading -->
     <div class="heading">
