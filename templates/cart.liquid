@@ -23,30 +23,35 @@
   <!-- cart heading -->
   <h1 class="text-black font-integralcf text-[39.50px] font-bold leading-none pt-[7px] pb-[28px] uppercase">Your cart
   </h1>
+   {% if cart.item_count != 0 %}
+     
   <div class="cart-product-content flex gap-[20px]">
 
 
     <!-- product detils left -->
     <div
       class="cart-left-product flex self-start w-7/12 p-[20px_24px] flex-col items-start gap-6 rounded-[20px] border border-[rgba(0,0,0,0.10)]">
-
-      {% for item in cart.items %}
+       {% for item in cart.items %}
       <!-- single cart 1  -->
       <div class="product-wrapper bborder-b border-black/10 w-full flex items-center justify-between gap-4 border-none rounded-lg relative">
         <!-- product info and image -->
        <div class="product-info-image flex items-center gap-6">
         <!-- product image -->
+         {% if item.image %}
         <div class="image flex-shrink-0 w-[124px] h-[124px] bg-gray-100 rounded-md overflow-hidden">
          <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.title }}" class="object-cover w-full h-full" />
         </div>
+        {% endif %}
 
         <!-- product details and operations container relative -->
         <div class="flex-grow relative">
           <!-- product info -->
           <div class="product-info text-gray-800 font-medium text-lg pt-[6px]">
+            {% if item.title %}
             <h1 class="text-black font-satoshi text-[20px] font-bold leading-none">
                {{ item.title }}
             </h1>
+            {% endif %}
             <p>
               <span class="text-black font-satoshi text-[14px] font-normal leading-none">Size:</span>
               <span class="text-black/60 font-satoshi text-[14px] font-normal leading-none ">Large</span>
@@ -55,9 +60,11 @@
               <span class="text-black font-satoshi text-[14px] font-normal leading-none">Color:</span>
               <span class="text-black/60 font-satoshi text-[14px] font-normal leading-none">White</span>
             </p>
+            {% if item.original_price %}
             <h2 class="text-black font-satoshi text-[24px] font-bold leading-none pt-[15px]">
               {{ item.original_price | money }}
             </h2>
+            {% endif %}
           </div>
         </div>
        </div>
@@ -65,6 +72,7 @@
  <!-- product operation -->
         <div class="operation">
            <!-- delete button absolute top right -->
+            <a href="{{ item.url_to_remove }}">
           <button type="button"
             class="delete-btn text-red-600 hover:text-red-800 transition-colors absolute top-0 right-0"
             aria-label="Delete product">
@@ -74,43 +82,16 @@
                 fill="#FF3333" />
             </svg>
           </button>
+          </a>
 
-          <!-- operation buttons absolute bottom right -->
-          <div
-                class="add-cart flex w-[170px] h-[52px] px-[20px] py-[16px] justify-between items-center flex-shrink-0 rounded-[62px] bg-[#F0F0F0]">
-                <!-- Minus Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                    <path
-                        d="M21.375 12C21.375 12.2984 21.2565 12.5845 21.0455 12.7955C20.8345 13.0065 20.5484 13.125 20.25 13.125H3.75C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5845 2.625 12.2984 2.625 12C2.625 11.7016 2.74353 11.4155 2.9545 11.2045C3.16548 10.9935 3.45163 10.875 3.75 10.875H20.25C20.5484 10.875 20.8345 10.9935 21.0455 11.2045C21.2565 11.4155 21.375 11.7016 21.375 12Z"
-                        fill="black" />
-                </svg>
-
-                <!-- Quantity Number -->
-              <input 
-  type="number" 
-  name="quantity" 
-  min="1" 
-  value="{{ item.quantity }}"
-  required
-  class="text-black font-[Satoshi] text-[16px] not-italic font-medium leading-none bg-transparent border-none outline-none w-[44px] text-center p-0 appearance-none"
-/>
-
-
-                <!-- Plus Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                    <path
-                        d="M21.375 12C21.375 12.2984 21.2565 12.5845 21.0455 12.7955C20.8345 13.0065 20.5484 13.125 20.25 13.125H13.125V20.25C13.125 20.5484 13.0065 20.8345 12.7955 21.0455C12.5845 21.2565 12.2984 21.375 12 21.375C11.7016 21.375 11.4155 21.2565 11.2045 21.0455C10.9935 20.8345 10.875 20.5484 10.875 20.25V13.125H3.75C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5845 2.625 12.2984 2.625 12C2.625 11.7016 2.74353 11.4155 2.9545 11.2045C3.16548 10.9935 3.45163 10.875 3.75 10.875H10.875V3.75C10.875 3.45163 10.9935 3.16548 11.2045 2.9545C11.4155 2.74353 11.7016 2.625 12 2.625C12.2984 2.625 12.5845 2.74353 12.7955 2.9545C13.0065 3.16548 13.125 3.45163 13.125 3.75V10.875H20.25C20.5484 10.875 20.8345 10.9935 21.0455 11.2045C21.2565 11.4155 21.375 11.7016 21.375 12Z"
-                        fill="black" />
-                </svg>
-            </div>
+          {% render 'quantity' %}
         </div>
 
         
       </div>
 
-      {% else %}
-  <p>Your cart is empty</p>
       {% endfor %}
+
     </div>
 
 
@@ -198,6 +179,11 @@
 
     </div>
   </div>
+     {% else %}
+  <div class="flex items-center justify-between">
+      <p class="text-2xl text-red-500">Your cart is empty</p>
+  </div>
+   {% endif %}
 
 </div>
 
