@@ -2,7 +2,9 @@
                     <div class="product-card flex flex-col gap-2.5 w-full md:max-w-[260px]">
                         <!-- card image -->
                         <div class="image w-full 2xl:w-[295px] h-[298px]">
+                            <a href="{{ product.url }}">
                             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" />
+                            </a>
                         </div>
 
                         <!-- card content -->
@@ -10,7 +12,9 @@
                             <!-- product text -->
                             <div class="text-area-wrapper flex flex-col gap-1.5">
                                 <h1 class="text-[20px] text-black font-satoshi  not-italic font-bold leading-normal">
+                                   <a href="{{ product.url }}">
                                     {{ product.title }} 
+                                    </a>
                                 </h1>
 
                                 <!-- rating -->
@@ -44,7 +48,7 @@
                                 <!-- product price -->
                                 <div class="product-price pt-2 pb-[2px] flex gap-[9px]">
                                     <h1 class="text-black font-satoshi text-[24px] font-bold leading-none">
-                                        $120
+                                        {{ product.price | money}}
                                     </h1>
                                 </div>
                             </div>

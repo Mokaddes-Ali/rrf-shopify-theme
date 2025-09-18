@@ -64,7 +64,8 @@
         <!-- product text -->
         <div class="text-area-wrapper w-[600px] flex flex-col gap-[15.30px]">
             <h1 class="text-black font-[700] min-w-[610px] text-[39.25px] not-italic leading-none font-integralcf">
-                One Life Graphic T-shirt</h1>
+                {{ product.title }}
+                </h1>
 
             <!-- rating -->
             <div class="rating flex gap-[14px] items-center pt-[2px]">
@@ -103,20 +104,29 @@
 
             <!-- product price -->
             <div class="product-price pt-[7.60px] pb-[2px] flex gap-[13.50px]">
-                <h1 class="text-black font-satoshi text-[32px] not-italic font-extrabold leading-none">$260</h1>
+                <h1 class="text-black font-satoshi text-[32px] not-italic font-extrabold leading-none">{{ product.price | money }}
+                </h1>
                 <h2
                     class="text-[rgba(0,0,0,0.3)] font-satoshi text-[32px] not-italic font-bold leading-none line-through">
-                    $300</h2>
+                    {{ product.compare_at_price | money }}
+                    </h2>
                 <div
                     class="inline-flex px-[14px] py-[6px] justify-center items-center gap-[12px] rounded-[62px] bg-[rgba(255,51,51,0.1)]">
-                    <h1 class="text-[#F33] font-[Satoshi] text-[16px] not-italic font-medium leading-none">-40%</h1>
+                    {% if product.compare_at_price > product.price  %}
+                    {% assign discount = product.compare_at_price | minus: product.price %}
+                     {% assign discount_percent = discount | times: 100.0 | divided_by: product.compare_at_price | round %}
+
+                    <h1 class="text-[#F33] font-[Satoshi] text-[16px] not-italic font-medium leading-none"> 
+                        - {{ discount_percent }}%
+                    </h1>
+                    {% endif %}
                 </div>
             </div>
 
             <!-- text -->
             <p class="text-[rgba(0,0,0,0.6)] pb-[3px] font-satoshi text-[16px] not-italic font-normal leading-[22px]">
-                This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric,
-                it offers superior comfort and style.</p>
+                {{ product.description}}
+                </p>
             <!-- divider -->
             <div class="w-[590px] h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
         </div>
@@ -177,8 +187,11 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
             <!-- divider -->
             <div class="w-[590px] h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
         </div>
-        <!-- add to cart btn -->
-        <div class="add-cart flex gap-[20px] pt-[12px]">
+
+          <!-- add to cart btn -->
+        {% form 'product', product %}
+        <div class="add-cart flex  gap-[20px] pt-[12px]">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             <div
                 class="flex w-[170px] h-[52px] px-[20px] py-[16px] justify-between items-center flex-shrink-0 rounded-[62px] bg-[#F0F0F0]">
                 <!-- Minus Icon -->
@@ -189,7 +202,15 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
                 </svg>
 
                 <!-- Quantity Number -->
-                <span class="text-black font-[Satoshi] text-[16px] not-italic font-medium leading-none">1</span>
+              <input 
+  type="number" 
+  name="quantity" 
+  min="1" 
+  value="1"
+  required
+  class="text-black font-[Satoshi] text-[16px] not-italic font-medium leading-none bg-transparent border-none outline-none w-[44px] text-center p-0 appearance-none"
+/>
+
 
                 <!-- Plus Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
@@ -201,13 +222,15 @@ h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] f
 
             <div class="cart-btn">
                 <button
-                    class="flex w-[400px] h-[52px] px-[54px] py-[16px] justify-center items-center gap-[12px] flex-shrink-0 rounded-[62px] bg-black text-white font-[Satoshi] text-[16px] not-italic font-medium leading-normal">
+                    class="flex px-[54px] py-[16px] justify-center items-center gap-[12px] flex-shrink-0 rounded-[62px] bg-black text-white font-[Satoshi] text-[16px] not-italic font-medium leading-normal" type="submit">
                     Add to Cart
                 </button>
 
             </div>
 
         </div>
+
+        {% endform %}
     </div>
 
 
@@ -711,4 +734,24 @@ $('.slider-nav').slick({
 });
 
     });
+
+
+    // product add and minus button
+    const qtyInput = $('input[name = "quantity"]');
+    const plusBtn = $('.add-cart svg:last-of-type');
+    const minusBtn = $('.add-cart svg:first-of-type');
+
+    plusBtn.on('click', function(){
+        let value = parseInt(qtyInput.val()) || 1;
+                   qtyInput.val(value + 1);
+    });
+
+    minusBtn.on('click', function(){
+        let value = parseInt(qtyInput.val()) || 1;
+        if(value > 1){
+                    qtyInput.val(value - 1);
+        }
+                   
+    });
+
 </script>
