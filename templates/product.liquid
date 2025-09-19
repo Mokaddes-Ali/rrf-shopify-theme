@@ -1,3 +1,5 @@
+
+<script src="{{ 'add_to_cart.js' | asset_url }}"></script>
 <!-- Breadcrumb Navigation -->
 <div class="w-full px-[100px] pt-[26px] mx-auto flex items-center gap-[7.90px]">
     <a href="#" class="text-[#000000] font-satoshi text-[16px] not-italic font-normal leading-none">
@@ -195,7 +197,7 @@
              {% render 'quantity', type:"product" %}
 
             <div class="cart-btn">
-                <button
+                <button id="add-to-cart"
                     class="flex px-[54px] py-[16px] justify-center items-center gap-[12px] flex-shrink-0 rounded-[62px] bg-black text-white font-[Satoshi] text-[16px] not-italic font-medium leading-normal" type="submit">
                     Add to Cart
                 </button>
