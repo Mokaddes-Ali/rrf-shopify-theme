@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
   // 🔹 Cart UI 
   function updateCartUI(cart) {
      const cartWrapper = $(".cart-product-content");
-
+     
   // Cart empty 
   if (cart.item_count === 0) {
     cartWrapper.html(`

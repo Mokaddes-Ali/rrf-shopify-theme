@@ -83,7 +83,6 @@
             {% endfor %}
             </div>
         </div>
-
         <!-- footer divider -->
         <div class="">
             <div class="w-full h-[1px] bg-black bg-opacity-10"></div>
@@ -310,7 +309,21 @@
     </div>
    </div>
    </div>
+
+  
+   
+<!-- Full page popup -->
+<div class="product-cart-popup fixed hidden inset-0 z-10 bg-black/50 flex justify-center items-start overflow-auto p-7">
+<div class="bg-white w-full h-96">
+    <div class="">
+        {% render "close_icon" %}
+    </div>
+
+</div>
+</div>
  </footer>
+
+
 
  {% schema %}
 {
