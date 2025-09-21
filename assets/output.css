@@ -32,7 +32,6 @@
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
-    --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-fuchsia-700: oklch(51.8% 0.253 323.949);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
@@ -260,9 +259,6 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
-  .right-1 {
-    right: calc(var(--spacing) * 1);
-  }
   .right-6 {
     right: calc(var(--spacing) * 6);
   }
@@ -353,10 +349,6 @@
   .table {
     display: table;
   }
-  .size-6 {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
-  }
   .size-7 {
     width: calc(var(--spacing) * 7);
     height: calc(var(--spacing) * 7);
@@ -372,6 +364,9 @@
   }
   .h-7 {
     height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-9 {
     height: calc(var(--spacing) * 9);
@@ -495,6 +490,9 @@
   }
   .w-7\/12 {
     width: calc(7/12 * 100%);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
   }
   .w-9 {
     width: calc(var(--spacing) * 9);
@@ -1547,23 +1545,23 @@
       }
     }
   }
-  .group-hover\:hidden {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        display: none;
-      }
-    }
-  }
   .last\:border-0 {
     &:last-child {
       border-style: var(--tw-border-style);
       border-width: 0px;
     }
   }
-  .hover\:hidden {
+  .hover\:rounded {
     &:hover {
       @media (hover: hover) {
-        display: none;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+  .hover\:rounded-full {
+    &:hover {
+      @media (hover: hover) {
+        border-radius: calc(infinity * 1px);
       }
     }
   }
@@ -1581,6 +1579,13 @@
       }
     }
   }
+  .hover\:bg-white {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-white);
+      }
+    }
+  }
   .hover\:bg-yellow-100 {
     &:hover {
       @media (hover: hover) {
@@ -1595,21 +1600,17 @@
       }
     }
   }
+  .hover\:text-black {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-black);
+      }
+    }
+  }
   .hover\:text-white {
     &:hover {
       @media (hover: hover) {
         color: var(--color-white);
-      }
-    }
-  }
-  .group-hover\:hover\:hidden {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        &:hover {
-          @media (hover: hover) {
-            display: none;
-          }
-        }
       }
     }
   }
