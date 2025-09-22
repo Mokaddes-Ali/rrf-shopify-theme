@@ -313,11 +313,195 @@
   
    
 <!-- Full page popup -->
-<div class="product-cart-popup fixed hidden inset-0 z-10 bg-black/50 flex justify-center items-start overflow-auto p-7">
-<div class="bg-white w-full h-96">
-    <div class="">
-        {% render "close_icon" %}
+<div class="product-cart-popup fixed hidden inset-0 z-50 bg-black/50 flex justify-center items-start overflow-auto p-7">
+
+<div class="relative bg-white max-w-6xl min-w-6xl">
+    {% render "close_icon" %}
+
+<!-- Product Details -->
+<div  id="pop-up-product-details" class="pop-up-product-details w-full px-[100px] pt-[40px] flex gap-[40px]">
+
+     <!-- Loading -->
+  <div id="product-loading" class="hidden text-center w-full">
+    <span class="loader inline-block w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></span>
+    <p>Loading...</p>
+  </div>
+   
+ <!-- product-details-left image -->
+    <div class="product-details-left w-7/12 flex gap-[14px]">
+        <div class="slider-nav product-image-sidebar flex flex-col gap-[14px]">
+            <div class="product-image1 w-[152px] h-[167px]">
+                <img src="{{ 'productImg1.png' | asset_url }}" class="" />
+            </div>
+            <div class="product-image2 w-[152px] h-[167px]">
+                <img src="{{ 'productImg2.png' | asset_url }}" class="" />
+            </div>
+            <div class="product-image3 w-[152px] h-[167px]">
+                <img src="{{ 'productImg3.png' | asset_url }}" class="" />
+            </div>
+        </div>
+        <div class="slider-for product-main-image w-[444px] h-[530px]">
+              <div>
+                  <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ item.title }}" class="w-full h-[530px] object-contain" />
+            </div>
+    <div><img src="{{ 'productImg2.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
+    <div><img src="{{ 'productImg3.png' | asset_url }}" class="w-full h-[530px] object-contain" /></div>
+        </div>
     </div>
+
+    <!-- product details right -->
+    <div class="product-details-right w-5/12 flex flex-col gap-[12px] pt-[5px] pb-[25px]">
+
+        <!-- product text -->
+        <div class="text-area-wrapper w-full flex flex-col gap-[15.30px]">
+            <h1 id="pop-up-product-title" class="text-black font-[700] min-w-[610px] text-[39.25px] not-italic leading-none font-integralcf">
+                
+                </h1>
+
+            <!-- rating -->
+            <div class="rating flex gap-[14px] items-center pt-[2px]">
+                <div class="rating-icon flex gap-[7.10px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                        <path
+                            d="M12.3562 0L15.8569 7.53796L24.1077 8.53794L18.0204 14.1966L19.619 22.3526L12.3562 18.3119L5.09341 22.3526L6.69201 14.1966L0.604756 8.53794L8.85555 7.53796L12.3562 0Z"
+                            fill="#FFC633" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                        <path
+                            d="M12.3562 0L15.8569 7.53796L24.1077 8.53794L18.0204 14.1966L19.619 22.3526L12.3562 18.3119L5.09341 22.3526L6.69201 14.1966L0.604756 8.53794L8.85555 7.53796L12.3562 0Z"
+                            fill="#FFC633" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                        <path
+                            d="M12.3562 0L15.8569 7.53796L24.1077 8.53794L18.0204 14.1966L19.619 22.3526L12.3562 18.3119L5.09341 22.3526L6.69201 14.1966L0.604756 8.53794L8.85555 7.53796L12.3562 0Z"
+                            fill="#FFC633" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                        <path
+                            d="M12.3562 0L15.8569 7.53796L24.1077 8.53794L18.0204 14.1966L19.619 22.3526L12.3562 18.3119L5.09341 22.3526L6.69201 14.1966L0.604756 8.53794L8.85555 7.53796L12.3562 0Z"
+                            fill="#FFC633" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="23" viewBox="0 0 12 23" fill="none">
+                        <path
+                            d="M4.73719 22.3526L12 18.3119V0L8.49932 7.53796L0.248535 8.53793L6.33579 14.1966L4.73719 22.3526Z"
+                            fill="#FFC633" />
+                    </svg>
+                </div>
+                <!-- rating rate -->
+                <div class="rating-rate">
+                    <h1 class="text-black font-satoshi text-[16px] not-italic font-normal leading-none">4.5/5</h1>
+                </div>
+            </div>
+
+            <!-- product price -->
+            <div class="product-price pt-[7.60px] pb-[2px] flex gap-[13.50px]">
+                <h1 id="pop-up-product-price" class="text-black font-satoshi text-[32px] not-italic font-extrabold leading-none">
+                </h1>
+                <h2
+                    class="text-[rgba(0,0,0,0.3)] font-satoshi text-[32px] not-italic font-bold leading-none line-through">
+                    {{ product.compare_at_price | money }}
+                    </h2>
+             {% if product.compare_at_price > product.price %}
+  {% assign discount = product.compare_at_price | minus: product.price %}
+  {% assign discount_percent = discount | times: 100.0 | divided_by: product.compare_at_price | round %}
+
+  {% if discount_percent != 0 %}
+    <div
+      class="inline-flex px-[14px] py-[6px] justify-center items-center gap-[12px] rounded-[62px] bg-[rgba(255,51,51,0.1)]">
+      <h1 class="text-[#F33] font-[Satoshi] text-[16px] not-italic font-medium leading-none"> 
+        - {{ discount_percent }}%
+      </h1>
+    </div>
+  {% endif %}
+{% endif %}
+
+            </div>
+
+            <!-- text -->
+            <p class="pop-up-product-description text-[rgba(0,0,0,0.6)] pb-[3px] font-satoshi text-[16px] not-italic font-normal leading-[22px]">
+              
+                </p>
+            <!-- divider -->
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+        </div>
+
+
+        <!-- Color -->
+        <div class="text-area-wrapper w-full pt-[4px] flex flex-col gap-[20.50px]">
+            <!-- Select Color -->
+            <div class="select-color flex flex-col gap-[12px]">
+                <h1 class="text-[rgba(0,0,0,0.6)]  font-satoshi text-[16px] not-italic font-normal leading-normal">
+                    Select Colors</h1>
+                <div class="color flex gap-[16px]">
+                    <button
+                        class="w-[37px] h-[37px] rounded-full bg-[#4F4631] flex flex-shrink-0 border-none justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-[#FFFFFF]" viewBox="0 0 16 16"
+                            fill="none">
+                            <path
+                                d="M14.5306 5.03063L6.5306 13.0306C6.46092 13.1005 6.37813 13.156 6.28696 13.1939C6.1958 13.2317 6.09806 13.2512 5.99935 13.2512C5.90064 13.2512 5.8029 13.2317 5.71173 13.1939C5.62057 13.156 5.53778 13.1005 5.4681 13.0306L1.9681 9.53063C1.89833 9.46087 1.84299 9.37804 1.80524 9.28689C1.76748 9.19574 1.74805 9.09804 1.74805 8.99938C1.74805 8.90072 1.76748 8.80302 1.80524 8.71187C1.84299 8.62072 1.89833 8.53789 1.9681 8.46813C2.03786 8.39837 2.12069 8.34302 2.21184 8.30527C2.30299 8.26751 2.40069 8.24808 2.49935 8.24808C2.59801 8.24808 2.69571 8.26751 2.78686 8.30527C2.87801 8.34302 2.96083 8.39837 3.0306 8.46813L5.99997 11.4375L13.4693 3.96938C13.6102 3.82848 13.8013 3.74933 14.0006 3.74933C14.1999 3.74933 14.391 3.82848 14.5318 3.96938C14.6727 4.11028 14.7519 4.30137 14.7519 4.50063C14.7519 4.69989 14.6727 4.89098 14.5318 5.03188L14.5306 5.03063Z" />
+                        </svg>
+                    </button>
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5" r="18.5" fill="#314F4A" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                        <circle cx="18.5" cy="18.5" r="18.5" fill="#31344F" />
+                    </svg>
+                </div>
+            </div>
+            <!-- divider -->
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+        </div>
+
+        <!-- Choose Size -->
+        <div class="choose-size flex flex-col gap-[10px] pt-[3.50px]">
+            <h1 class="text-[rgba(0,0,0,0.6)]  font-satoshi text-[16px] not-italic font-normal leading-normal">
+                Choose Size</h1>
+            <div class="size-btn flex gap-[12px] pb-[14px]">
+                <button
+                    class="w-[86px] h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] font-satoshi text-[16px] not-italic font-normal leading-normal">
+                    Small
+                </button>
+                <button
+                    class="w-[105px] h-[46px] px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] font-satoshi text-[16px] not-italic font-normal leading-normal">
+                    Medium
+                </button>
+                <button
+                    class="w-[89px] h-[46px] px-6 py-3 rounded-[62px] bg-[#000000] border-0 text-white font-satoshi text-[16px] not-italic font-normal leading-normal">
+                    Large
+                </button>
+                <button class="px-6 py-3 rounded-[62px] bg-[#F0F0F0] border-0 text-[rgba(0,0,0,0.6)] font-satoshi text-[16px] not-italic font-normal leading-normal">
+                    X-Large
+                </button>
+            </div>
+            <!-- divider -->
+            <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
+        </div>
+
+          <!-- add to cart btn -->
+        {% form 'product', product %}
+        <div class="add-cart flex  gap-[20px] pt-[12px]">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+             {% render 'quantity', type:"product" %}
+
+            <div class="cart-btn">
+                <button id="add-to-cart"
+                    class="disabled:cursor-not-allowed disabled:opacity-50 flex px-[54px] py-[16px] justify-center items-center gap-[12px] flex-shrink-0 rounded-[62px] bg-black text-white font-[Satoshi] text-[16px] not-italic font-medium leading-normal" type="submit">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        {% endform %}
+    </div>
+
+
+</div>
+   
 
 </div>
 </div>

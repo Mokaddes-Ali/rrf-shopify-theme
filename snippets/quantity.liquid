@@ -16,23 +16,3 @@
   </div>
 </form>
 
-<script>
-jQuery(document).ready(function () {
-    const qtyInput = $('input[name="quantity"]');
-    const productQuantity = $(".product-quantity");
-
-    $(".plus-icon").off("click").on("click", function() {
-        let value = parseInt(qtyInput.val()) || 1;
-        value++;
-        qtyInput.val(value);
-        productQuantity.text(value);
-    });
-
-    $(".minus-icon").off("click").on("click", function() {
-        let value = parseInt(qtyInput.val()) || 1;
-        if (value > 1) value--;
-        qtyInput.val(value);
-        productQuantity.text(value);
-    });
-});
-</script>
