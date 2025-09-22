@@ -5,7 +5,7 @@
         <div class="navbar-area flex items-center justify-around gap-12 pb-3 pt-2 my-2">
             <!-- Logo -->
             <div class="logo w-2/12">
-                <a href="index.html">
+                <a href="{{ '/' | relative_url }}">
                     <img src="{{ 'headerlogo.png' | asset_url }}" class="w-[160px] h-[22px]" />
                 </a>
             </div>
@@ -23,21 +23,14 @@
                                 </svg></span>
                         </a>
                     </li>
+                    {% for link in section.settings.menu.links %}
                     <li class="">
-                        <a href="/shop.html">
-                            On Sale
+                        <a href="{{ link.url }}">
+                            {{ link.title }}
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            New Arrivals
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            Brands
-                        </a>
-                    </li>
+                    {% endfor %}
+                    
                 </ul>
             </nav>
             <!-- serach button -->
@@ -115,6 +108,7 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- Header divider -->
@@ -123,16 +117,26 @@
         </div>
     </div>
 </header>
-{% schema %}
-{
-"name": "Header",
-"enabled_on" :{
-"groups" : ["header"]
-},
-"presets": [
-{
-"name": "Header"
-}
-]
-}
-{% endschema %}
+
+        {% schema %}
+            {
+            "name": "Header",
+
+            "enabled_on" :{
+            "groups" : ["header"]
+            },
+
+            "settings":[{
+                "type": "link_list",
+                "id": "menu",
+                "label": "Menu"
+            }],
+
+            "presets": [
+            {
+            "name": "Header"
+            }
+            ]
+
+            }
+        {% endschema %}

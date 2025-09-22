@@ -1,0 +1,64 @@
+<div
+  class="product-recommendations related-product-area w-full px-[100px] pt-[42px] flex flex-col gap-[48px]"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related"
+>
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    {% if recommendations.intent == 'related' %}
+      <!-- heading -->
+    <div class="heading">
+        <h1 class="text-black text-center font-integralcf text-[47px] not-italic font-bold leading-normal">You might
+            also like</h1>
+    </div>
+    {% elsif recommendations.intent == 'complementary' %}
+      <h2>Pair it with</h2>
+    {% endif %}
+
+       <!-- product card -->
+    <div class="product-cards flex gap-[19.50px]">
+      {%- for product in recommendations.products -%}
+
+           {% include 'single-product' %}
+
+      {%- endfor -%}
+     </div>
+  {%- endif -%}
+</div>
+
+{% javascript %}
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.url;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.product-recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  };
+
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+  observer.observe(productRecommendationsSection);
+  console.log("Product recommendations section:", productRecommendationsSection);
+
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "settings": []
+  }
+{% endschema %}

@@ -41,6 +41,7 @@ jQuery(document).ready( function(){
   $(".pop-up-product-description").empty();
   $("#pop-up-product-price").empty();
   $("#pop-up-product-compare-price").empty();
+  $("#discount_percent").empty();
 
 
   $("#product-loading").removeClass("hidden");
@@ -54,14 +55,25 @@ jQuery(document).ready( function(){
 
       $("#product-loading").addClass("hidden");
 
+      const product_price = product.variants[0].price;
+      const product_compare_price = product.variants[0].compare_at_price;
 
       $("#pop-up-product-title").text(product.title);
       $(".pop-up-product-description").html(product.description);
-      $("#pop-up-product-price").text(`$${(product.variants[0].price / 100).toFixed(2)}`);
+      $("#pop-up-product-price").text(`$${(product_price / 100).toFixed(2)}`);
 
-      if (product.variants[0].compare_at_price) {
-        $("#pop-up-product-compare-price").text(product.variants[0].compare_at_price);
-      }
+        $("#pop-up-product-compare-price").text(`$${(product_compare_price / 100).toFixed(2)}`);
+
+
+         if ( product_compare_price > product_price ){
+          let discount = ((product_compare_price - product_price) * 100) /product_compare_price;
+          if(discount){
+                $("#discount_percent").text(`${(discount).toFixed(2)}%`);
+          }
+           $("#discount_percent").addClass('hidden');
+         
+        
+          }
     },
     error: function (err) {
       $("#product-loading").addClass("hidden");
