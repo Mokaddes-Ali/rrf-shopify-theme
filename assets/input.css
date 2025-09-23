@@ -28,11 +28,29 @@
 
 
 
+
 @import "tailwindcss";
 
 @theme{
   --font-satoshi: 'Satoshi', 'sans-serif';
   --font-integralcf: 'IntegralCF', 'sans-serif'
+}
+
+.hidden-radio {
+  display: none;
+}
+
+.option-button {
+  background-color: #F0F0F0;
+  transition: all 0.2s;
+padding: 8px 16px;
+border-radius: 62px;
+}
+
+.hidden-radio:checked + .option-button {
+  background-color: #000000;
+  color: #fff;
+  border-color: #ff6600;
 }
 
 

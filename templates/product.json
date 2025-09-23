@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "breadcrumb":{
+        "type": "breadcrumb",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "product-review": {
+      "type": "product-review",
+      "settings": {}
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main-product",
+    "product-review",
+    "product-recommendations"
+  ]
+}
