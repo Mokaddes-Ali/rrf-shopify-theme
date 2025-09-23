@@ -99,14 +99,14 @@
   {% if product.variants.size > 1 %}
     <select class="variance hidden" name="id" >
       {% for variant in product.variants %}
-        <option data-image="{{ variant.featured_image | img_url: '200x' }}" value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+        <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
           {{ variant.title }}
         </option>
       {% endfor %}
     </select>
   {% else %}
     <!-- Single variant, no dropdown -->
-    <input type="hidden" name="properties[variant_image]" id="variant_image_input" name="id" value="{{ product.variants.first.id }}">
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
   {% endif %}
 
   <div class="add-cart flex gap-[20px] pt-[12px]">

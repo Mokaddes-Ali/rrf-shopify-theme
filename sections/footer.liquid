@@ -1,6 +1,5 @@
    <!-- Footer -->
 <footer class="">
-
        <div class="bg-[#F0F0F0] w-full">
             <div class="custom-container">
 
@@ -310,8 +309,27 @@
         </div>
         </div>
 
-  
+<!-- Full page popup -->
+<div class="product-cart-popup fixed hidden inset-0 z-50 bg-black/50 flex justify-center items-start overflow-auto p-5">
 
+<div class="relative bg-white max-w-5xl min-w-5xl">
+    {% render "close_icon" %}
+
+<!-- Product Details -->
+      <!-- Loading -->
+  <div id="product-loading" class=" flex items-center justify-center hidden text-center w-full">
+    <span class="loader inline-block w-6 h-6 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></span>
+    <p>Loading...</p>
+  </div>
+<div  id="pop-up-product-details" class="pop-up-product-details w-full flex">
+   
+
+
+</div>
+   
+
+</div>
+</div>
  </footer>
 
 
