@@ -29,6 +29,7 @@
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-orange-500: oklch(70.5% 0.213 47.604);
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
@@ -229,9 +230,6 @@
   }
   .absolute {
     position: absolute;
-  }
-  .fixed {
-    position: fixed;
   }
   .relative {
     position: relative;
@@ -591,9 +589,6 @@
   .w-max {
     width: max-content;
   }
-  .max-w-6xl {
-    max-width: var(--container-6xl);
-  }
   .max-w-\[100\%\] {
     max-width: 100%;
   }
@@ -602,9 +597,6 @@
   }
   .max-w-full {
     max-width: 100%;
-  }
-  .min-w-6xl {
-    min-width: var(--container-6xl);
   }
   .min-w-\[610px\] {
     min-width: 610px;
@@ -816,9 +808,6 @@
   .self-start {
     align-self: flex-start;
   }
-  .overflow-auto {
-    overflow: auto;
-  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -850,9 +839,9 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-4 {
+  .border-2 {
     border-style: var(--tw-border-style);
-    border-width: 4px;
+    border-width: 2px;
   }
   .border-b {
     border-bottom-style: var(--tw-border-style);
@@ -883,11 +872,8 @@
       border-color: color-mix(in oklab, var(--color-black) 85%, transparent);
     }
   }
-  .border-gray-300 {
-    border-color: var(--color-gray-300);
-  }
-  .border-t-blue-500 {
-    border-top-color: var(--color-blue-500);
+  .border-orange-500 {
+    border-color: var(--color-orange-500);
   }
   .border-b-fuchsia-700\/50 {
     border-bottom-color: color-mix(in srgb, oklch(51.8% 0.253 323.949) 50%, transparent);
@@ -931,12 +917,6 @@
       background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
     }
   }
-  .bg-black\/50 {
-    background-color: color-mix(in srgb, #000 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
-    }
-  }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
@@ -969,9 +949,6 @@
   }
   .p-3 {
     padding: calc(var(--spacing) * 3);
-  }
-  .p-7 {
-    padding: calc(var(--spacing) * 7);
   }
   .p-\[20px_24px\] {
     padding: 20px 24px;

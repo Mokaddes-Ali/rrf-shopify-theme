@@ -68,9 +68,11 @@
                 </p>
             <!-- divider -->
             <div class="w-full h-[2px] bg-[rgba(0,0,0,0.10)]"></div>
-        </div>
+          </div>
+
 {% unless product.has_only_default_value %}
  {% for option in product.options_with_values %}
+  {% if option.values.size > 1 %}
   <div class="product-option">
     <p class="font-bold">{{ option.name }}</p>
     {% for value in option.values %}
@@ -79,13 +81,13 @@
         name="{{ option.name | downcase | replace: ' ', '_' }}" 
         id="{{ value | downcase | replace: ' ', '_' }}" 
         value="{{ value }}" 
-        class="hidden-radio" 
-        {% if forloop.first %} checked {% endif %}>
+        class="hidden-radio">
       <label for="{{ value | downcase | replace: ' ', '_' }}" class="option-button p-2 cursor-pointer border rounded-md inline-block mr-2 mb-2">
         {{ value }}
       </label>
     {% endfor %}
   </div>
+  {% endif %}
 {% endfor %}
 {% endunless %}
 
@@ -95,16 +97,16 @@
          {% form 'product', product %}
   <!-- Variant dropdown -->
   {% if product.variants.size > 1 %}
-    <select name="id">
+    <select class="variance hidden" name="id" >
       {% for variant in product.variants %}
-        <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+        <option data-image="{{ variant.featured_image | img_url: '200x' }}" value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
           {{ variant.title }}
         </option>
       {% endfor %}
     </select>
   {% else %}
     <!-- Single variant, no dropdown -->
-    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+    <input type="hidden" name="properties[variant_image]" id="variant_image_input" name="id" value="{{ product.variants.first.id }}">
   {% endif %}
 
   <div class="add-cart flex gap-[20px] pt-[12px]">
@@ -159,6 +161,47 @@
   ]
 }
 {% endschema %}
+
+<script>
+  jQuery(document).ready(function(){
+
+    function selectedVariance(param, value){
+      var url = new URL(window.location.href);
+            url.searchParams.set(param, value);
+            window.history.replaceState({}, '', url)
+     
+    }
+
+    function updateSelection(){
+      var selectvalue = '';
+      $(".product-option input[type='radio']:checked").each(function(){
+        selectvalue += (selectvalue ? " / " : "") + $(this).val();
+      });
+      // console.log(selectvalue); 
+      // select the main variance
+      $(".variance option").each( function(){
+       if($.trim($(this).text()) === selectvalue){
+        $(this).prop("selected", true);
+        return false;
+       }
+      });   
+     }
+
+
+    $(".product-option input[type='radio']").change( function(){
+      updateSelection();
+
+       var carrentVariance = $(".variance").val();
+      console.log(carrentVariance);
+      selectedVariance('variant', carrentVariance);
+    }
+      
+    );
+
+    updateSelection();
+  });
+</script>
+
 
 
 
