@@ -1,75 +1,118 @@
 <!-- single card 1 -->
-                    <div class="product-card flex flex-col gap-2.5 w-full md:max-w-[260px] group">
-                        <!-- card image -->
-                        <div class="relative image w-full 2xl:w-[295px] h-[298px]">
-                            <a href="{{ product.url }}">
-                            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" />
-                            </a>
-                            <div class="absolute right-8 top-2 flex flex-col gap-2 button-div">
-                               <!--wuick view button --> 
-                                <button class="product_quick_view" data-product-handle="{{ product.handle }}" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="quick_view_svg w-8 h-7 group-hover:block hidden text-red-500 hover:text-black hover:bg-white hover:rounded-full">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-</svg>
+<div class="product-card flex flex-col gap-2.5 w-full md:max-w-[260px] group">
+  <!-- card image -->
+  <div class="relative image w-full 2xl:w-[295px] h-[298px]">
+    <a href="{{ product.url }}">
+      <img
+        src="{{ product.featured_image | img_url : 'medium' }}"
+        alt="{{ product.title }}"
+      />
+    </a>
+    <div
+      class="absolute right-8 top-2 flex flex-col gap-2 button-div opacity-0 invisible group-hover:opacity-100 group-hover:visible wishlist-card"
+    >
+      <!--wuick view button -->
+      <button
+        class="product_quick_view bg-amber-200 rounded-full"
+        data-product-handle="{{ product.handle }}"
+      >
+        {% render "quick-view" %}
+      </button>
+      <!--add wishlist button -->
+      <button
+        class="add_wishlist cursor-pointer"
+        data-product_id="{{ product.handle }}"
+      >
+        {% render "wish-icon" %}
+      </button>
 
-                                </button>
-                               <!--add wishlist button --> 
-                                <button class=" cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 hidden text-red-600 group-hover:block">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-</svg>
+      <button
+        class="close_wishlist cursor-pointer hidden"
+        data-product_id="{{ product.handle }}"
+      >
+        {% render "wish-icon-click" %}
+      </button>
+    </div>
+  </div>
 
+  <!-- card content -->
+  <div class="card-content-wrapper pt-3">
+    <!-- product text -->
+    <div class="text-area-wrapper flex flex-col gap-1.5">
+      <h1
+        class="text-[20px] text-black font-satoshi not-italic font-bold leading-normal"
+      >
+        <a href="{{ product.url }}">
+          {{ product.title }}
+        </a>
+      </h1>
 
-                                </button>
+      <!-- rating -->
+      <div class="rating flex gap-4 items-center">
+        <div class="rating-icon flex gap-[4px]">
+          {% for i in (1..5) %} {% render "rating-icon" %} {% endfor %}
+        </div>
 
-                            </div>
-                        </div>
+        <!-- rating rate -->
+        <div class="rating-rate">
+          <h1
+            class="text-black font-satoshi text-[14px] font-normal leading-none"
+          >
+            4.5/5
+          </h1>
+        </div>
+      </div>
 
-                        <!-- card content -->
-                        <div class="card-content-wrapper pt-3">
-                            <!-- product text -->
-                            <div class="text-area-wrapper flex flex-col gap-1.5">
-                                <h1 class="text-[20px] text-black font-satoshi  not-italic font-bold leading-normal">
-                                   <a href="{{ product.url }}">
-                                    {{ product.title }} 
-                                    </a>
-                                </h1>
+      <!-- product price -->
+      <div class="product-price pt-2 pb-[2px] flex gap-[9px]">
+        <h1 class="text-black font-satoshi text-[24px] font-bold leading-none">
+          {{ product.price | money }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-                                <!-- rating -->
-                                <div class="rating flex gap-4 items-center">
-                                    <div class="rating-icon flex gap-[4px]">
-                                        {% for i in (1..4) %}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17"
-                                            viewBox="0 0 19 17" fill="none">
-                                            <path
-                                                d="M9.24494 0.255127L11.8641 5.89504L18.0374 6.64322L13.4829 10.8771L14.679 16.9794L9.24494 13.9561L3.8109 16.9794L5.00697 10.8771L0.452479 6.64322L6.62573 5.89504L9.24494 0.255127Z"
-                                                fill="#FFC633" />
-                                        </svg>
-                                        {% endfor %}
-                                        <!-- half star -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17"
-                                            viewBox="0 0 10 17" fill="none">
-                                            <path
-                                                d="M3.76418 16.9793L9.19822 13.9561V0.255066L6.57901 5.89498L0.405762 6.64316L4.96026 10.877L3.76418 16.9793Z"
-                                                fill="#FFC633" />
-                                        </svg>
-                                    </div>
+    <script>
+        jQuery(document).ready(function () {
+            // Add to wishlist
+            $(".add_wishlist").on("click", function () {
+            var card = $(this).closest(".wishlist-card");
+            $(this).addClass("hidden");
+            card.find(".close_wishlist").removeClass("hidden");
 
-                                    <!-- rating rate -->
-                                    <div class="rating-rate">
-                                        <h1 class="text-black font-satoshi text-[14px] font-normal leading-none">
-                                            4.5/5
-                                        </h1>
-                                    </div>
-                                </div>
+            let product_id = $(this).data("product_id");
 
-                                <!-- product price -->
-                                <div class="product-price pt-2 pb-[2px] flex gap-[9px]">
-                                    <h1 class="text-black font-satoshi text-[24px] font-bold leading-none">
-                                        {{ product.price | money}}
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
+            if (!wishList.includes(product_id)) {
+                wishList.push(product_id);
+                localStorage.setItem("wishlist", JSON.stringify(wishList));
+            }
+            });
+
+            // Remove from wishlist
+            $(".close_wishlist").on("click", function () {
+            var card = $(this).closest(".wishlist-card");
+            $(this).addClass("hidden");
+            card.find(".add_wishlist").removeClass("hidden");
+
+            let product_id = $(this).data("product_id");
+
+            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
+            wishList = wishList.filter((id) => id !== product_id);
+            localStorage.setItem("wishlist", JSON.stringify(wishList));
+            });
+        //   loading stay wishlist button
+            $(".wishlist-card").each(function () {
+            let product_id = $(this)
+                .find(".add_wishlist, .close_wishlist")
+                .data("product_id");
+
+            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
+            if (wishList.includes(product_id)) {
+                $(this).find(".add_wishlist").addClass("hidden");
+                $(this).find(".close_wishlist").removeClass("hidden");
+            }
+            });
+        });
+  </script>
