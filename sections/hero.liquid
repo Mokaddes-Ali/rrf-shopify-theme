@@ -7,20 +7,18 @@
     <!-- hero left -->
     <div class="hero-left-text py-12 w-1/2 flex flex-col items-start gap-6">
       <h1 class="text-black font-integralcf text-6xl font-bold leading-[64px]">
-        FIND CLOTHES THAT MATCHES YOUR STYLE
+        {{ section.settings.hero_heading }}
       </h1>
       <p
         class="text-[rgba(0,0,0,0.6)] w-full font-satoshi text-[16px] font-normal leading-[22px]"
       >
-        Browse through our diverse range of meticulously crafted garments,
-        designed to bring out your individuality and cater to your sense of
-        style.
+         {{ section.settings.hero_description }}
       </p>
       <a
-        href="#"
+        href="{{ section.settings.hero_btn_url }}"
         class="flex w-[210px] h-[52px] px-[54px] py-[16px] justify-center items-center gap-[12px] shrink-0 rounded-[62px] bg-black text-white font-[Satoshi] text-[16px] font-medium leading-none"
       >
-        Shop Now
+        {{ section.settings.hero_btn_text }}
       </a>
 
       <!-- Professional Data Divider Section -->
@@ -30,12 +28,12 @@
           <h1
             class="text-black font-satoshi text-[40px] font-bold leading-none"
           >
-            200+
+            {{ section.settings.hero_brands_count }}
           </h1>
           <p
             class="text-black/60 font-satoshi text-[16px] w-[141px] font-normal leading-tight"
           >
-            International Brands
+            {{ section.settings.hero_brands_text }}
           </p>
         </div>
 
@@ -49,12 +47,12 @@
           <h1
             class="text-black font-satoshi text-[40px] font-bold leading-none"
           >
-            2,000+
+             {{ section.settings.hero_products_count }}
           </h1>
           <p
             class="text-black/60 font-satoshi w-[156px] text-[16px] font-normal leading-tight"
           >
-            High-Quality Products
+            {{ section.settings.hero_products_text }}
           </p>
         </div>
 
@@ -68,12 +66,12 @@
           <h1
             class="text-black font-satoshi text-[40px] font-bold leading-none"
           >
-            30,000+
+        {{ section.settings.hero_customers_count }}
           </h1>
           <p
             class="text-black/60 font-satoshi text-base font-normal leading-tight"
           >
-            Happy Customers
+            {{ section.settings.hero_customers_text }}
           </p>
         </div>
       </div>
@@ -82,12 +80,21 @@
     <!-- hero right -->
     <div class="hero-right w-1/2 relative overflow-hidden -mr-0 md:-mr-80">
       <div class="herom-img absolute bottom-0 right-0 w-full max-w-full">
-        <img
+        {% if section.settings.hero_image != blank %}
+       <img
+          src="{{ section.settings.hero_image | image_url: width:600 }}"
+          class="w-full h-auto max-w-full object-contain"
+          alt="Hero Image"
+          loading="lazy"
+        />
+        {% else %}
+         <img
           src="{{ 'heroimg.png' | asset_url }}"
           class="w-full h-auto max-w-full object-contain"
           alt="Hero Image"
           loading="lazy"
         />
+        {% endif %}
       </div>
     </div>
   </div>
@@ -96,9 +103,83 @@
 {% schema %}
   {
      "name" : "Hero Section", 
-     "disabled_on" :{
-        "groups" : ["header", "footer"]
-    },
+      "disabled_on" :{
+          "groups" : ["header", "footer"]
+      },
+
+      "settings":[
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image"
+      },
+      {
+        "type": "header",
+        "content" : "Hero Content"
+      },
+      {
+    "type": "text",
+    "id" : "hero_heading",
+    "label": "Hero Heading",
+    "default": "FIND CLOTHES THAT MATCHES YOUR STYLE",
+      },
+      {
+        "type": "richtext",
+        "id": "hero_description",
+        "label" : "Hero Description",
+        "default" : "<p>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>",
+      },
+      {
+        "type": "text",
+        "id": "hero_btn_text",
+        "label": " Hero Button Text",
+        "default" : "Shop Now",
+      },
+      {
+        "type": "url",
+        "id": "hero_btn_url",
+        "label": "Hero Button URL",
+      },
+
+       {
+        "type": "text",
+        "id": "hero_brands_count",
+        "label": "Brands Count",
+        "default" : "200+",
+      },
+        {
+        "type": "text",
+        "id": "hero_brands_text",
+        "label": "Brands Text",
+        "default" : "International Brands",
+      },
+       
+       {
+        "type": "text",
+        "id": "hero_products_count",
+        "label": "Products Count",
+        "default" : "2,000+",
+      },
+      {
+        "type": "text",
+        "id": "hero_products_text",
+        "label": "Products Text",
+        "default" : "High-Quality Products",
+      },
+       
+      {
+        "type": "text",
+        "id": "hero_customers_count",
+        "label": "Customers Count",
+        "default" : "30,000+",
+      },
+      {
+        "type": "text",
+        "id": "hero_customers_text",
+        "label": "Customers Text",
+        "default" : "Happy Customers",
+      }
+      ],
 
       "presets": [{
                    "name": "Hero",

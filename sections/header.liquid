@@ -3,36 +3,62 @@
     <div class="custom-container">
         <!-- Navbar -->
         <div class="navbar-area flex items-center justify-around gap-12 pb-3 pt-2 my-2">
-            <!-- Logo -->
-            <div class="logo w-2/12">
-                <a href="{{ '/' | relative_url }}">
-                    <img src="{{ 'headerlogo.png' | asset_url }}" class="w-[160px] h-[22px]" />
-                </a>
-            </div>
+                <!-- Logo -->
+                <div class="logo w-2/12">
+                    <a href="{{ '/' | relative_url }}">
+                        {% if section.settings.logo != blank %}
+                        <img src="{{ section.settings.logo | image_url: width: 160 }}"  class="w-[160px] h-[22px]" />
+                        {% else %}
+                        {{ shop.name }}
+                        {% endif %}
+                    </a>
+                </div>
             <!-- Nav Menu -->
             <nav class="nav-menu w-4/12">
                 <ul
                     class="flex justify-center items-center gap-6 text-black font-satoshi text-[16px] font-normal normal-case">
-                    <li class="text-black font-satoshi text-[16px] font-normal normal-case"><a
-                            class="flex justify-center items-center gap-[5px]" href="/category.html">Shop<span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                    fill="none">
-                                    <path
-                                        d="M13.5306 6.53063L8.5306 11.5306C8.46092 11.6005 8.37813 11.656 8.28696 11.6939C8.1958 11.7317 8.09806 11.7512 7.99935 11.7512C7.90064 11.7512 7.8029 11.7317 7.71173 11.6939C7.62057 11.656 7.53778 11.6005 7.4681 11.5306L2.4681 6.53063C2.3272 6.38973 2.24805 6.19864 2.24805 5.99938C2.24805 5.80012 2.3272 5.60902 2.4681 5.46813C2.60899 5.32723 2.80009 5.24808 2.99935 5.24808C3.19861 5.24808 3.3897 5.32723 3.5306 5.46813L7.99997 9.9375L12.4693 5.4675C12.6102 5.32661 12.8013 5.24745 13.0006 5.24745C13.1999 5.24745 13.391 5.32661 13.5318 5.4675C13.6727 5.6084 13.7519 5.7995 13.7519 5.99875C13.7519 6.19801 13.6727 6.38911 13.5318 6.53L13.5306 6.53063Z"
-                                        fill="black" />
-                                </svg></span>
-                        </a>
-                    </li>
+
                     {% for link in section.settings.menu.links %}
-                    <li class="">
-                        <a href="{{ link.url }}">
-                            {{ link.title }}
-                        </a>
-                    </li>
+                        {% if link.links.size > 0 %}
+                        <li class="relative group text-black font-satoshi text-[16px] font-normal normal-case">
+                            <!-- Parent link -->
+                            <a class="flex justify-center items-center gap-[5px]" href="{{ link.url }}">
+                                {{ link.title }}
+                                <span class="transition-transform duration-300 group-hover:-rotate-180">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                        fill="none">
+                                        <path
+                                            d="M13.5306 6.53063L8.5306 11.5306C8.46092 11.6005 8.37813 11.656 8.28696 11.6939C8.1958 11.7317 8.09806 11.7512 7.99935 11.7512C7.90064 11.7512 7.8029 11.7317 7.71173 11.6939C7.62057 11.656 7.53778 11.6005 7.4681 11.5306L2.4681 6.53063C2.3272 6.38973 2.24805 6.19864 2.24805 5.99938C2.24805 5.80012 2.3272 5.60902 2.4681 5.46813C2.60899 5.32723 2.80009 5.24808 2.99935 5.24808C3.19861 5.24808 3.3897 5.32723 3.5306 5.46813L7.99997 9.9375L12.4693 5.4675C12.6102 5.32661 12.8013 5.24745 13.0006 5.24745C13.1999 5.24745 13.391 5.32661 13.5318 5.4675C13.6727 5.6084 13.7519 5.7995 13.7519 5.99875C13.7519 6.19801 13.6727 6.38911 13.5318 6.53L13.5306 6.53063Z"
+                                            fill="black" />
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <!-- Dropdown with delay -->
+                            <ul class="absolute z-50 left-0 mt-2 w-40 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:delay-0 transition-all duration-300 ease-in-out delay-200">
+                                {% for child in link.links %}
+                                <li>
+                                    <a class="block px-4 py-2 hover:bg-gray-100 hover:text-black"  href="{{ child.url }}">
+                                        {{ child.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                        {% else %}
+                        <!-- Normal Link -->
+                        <li>
+                            <a href="{{ link.url }}">
+                                {{ link.title }}
+                            </a>
+                        </li>
+                        {% endif %}
                     {% endfor %}
-                    
+
                 </ul>
             </nav>
+
             <!-- serach button -->
             <div class="serach-btn flex items-center w-5/12 h-12 gap-[12px] rounded-[62px] bg-[#F0F0F0]">
                 <form class="px-[16px] py-[12px] flex gap-[12px]">
@@ -77,8 +103,8 @@
                 <!-- Cart Popup Desing-->
                 <div
                     class="cart-popup absolute hidden mt-6 right-0 top-auto bg-white text-black min-w-max pt-12 px-6 pb-5 shadow-xl z-50">
-                   {% render "close_icon" %}
-                    
+                    {% render "close_icon" %}
+
                     <!-- product info and image -->
                     <div class="cart-drawer-items">
                         <!-- data from daynamic cart-->
@@ -118,25 +144,31 @@
     </div>
 </header>
 
-        {% schema %}
-            {
-            "name": "Header",
+{% schema %}
+{
+"name": "Header",
 
-            "enabled_on" :{
-            "groups" : ["header"]
-            },
+"enabled_on" :{
+"groups" : ["header"]
+},
 
-            "settings":[{
-                "type": "link_list",
-                "id": "menu",
-                "label": "Menu"
-            }],
+"settings":[{
+"type": "link_list",
+"id": "menu",
+"label": "Menu"
+},
+{
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Header Logo"
+}
+],
 
-            "presets": [
-            {
-            "name": "Header"
-            }
-            ]
+"presets": [
+{
+"name": "Header"
+}
+]
 
-            }
-        {% endschema %}
+}
+{% endschema %}
