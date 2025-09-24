@@ -192,7 +192,7 @@ for (let i = 1; i <= 5; i++) {
                 $(".show-wishlist-btn span").text(wishList.length);
             }
             });
-
+              // show-wishlist-btn
            $(".show-wishlist-btn").on("click", function(){
                let wishList_card = localStorage.getItem("wishlist");
                if(wishList_card){
