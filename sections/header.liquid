@@ -73,6 +73,24 @@
             </div>
 
             <div class="relative cart-login-icon w-1/12 flex gap-[10px]">
+                  <!--wishlist icon-->
+                     <button class="show-wishlist-btn relative cursor-pointer"
+                    >
+                        {% render "wish-icon-click" %}
+                        <span class="absolute right-0.5 top-2.5 bg-black text-white  rounded-full w-5 h-5 text-base"></span>
+                    </button>
+
+
+                     <!--Wishlist Cart Popup Desing-->
+                <div
+                    class="wishlist-cart-popup hidden absolute mt-9 -right-16 top-auto bg-white text-black max-w-2xl min-w-lg pt-8 px-6 pb-5 shadow-xl z-50">
+                    {% render "close_icon" %}
+
+                    <!-- product info and image -->
+                    <div class="wishlist-drawer-items">
+                        <!-- data from daynamic cart-->
+                    </div>
+                </div>
 
                 <a class="relative inline-block" href="/cart">
                     <!-- Badge -->

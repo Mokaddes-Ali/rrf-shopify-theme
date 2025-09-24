@@ -73,46 +73,4 @@
   </div>
 </div>
 
-    <script>
-        jQuery(document).ready(function () {
-            // Add to wishlist
-            $(".add_wishlist").on("click", function () {
-            var card = $(this).closest(".wishlist-card");
-            $(this).addClass("hidden");
-            card.find(".close_wishlist").removeClass("hidden");
-
-            let product_id = $(this).data("product_id");
-
-            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
-            if (!wishList.includes(product_id)) {
-                wishList.push(product_id);
-                localStorage.setItem("wishlist", JSON.stringify(wishList));
-            }
-            });
-
-            // Remove from wishlist
-            $(".close_wishlist").on("click", function () {
-            var card = $(this).closest(".wishlist-card");
-            $(this).addClass("hidden");
-            card.find(".add_wishlist").removeClass("hidden");
-
-            let product_id = $(this).data("product_id");
-
-            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
-            wishList = wishList.filter((id) => id !== product_id);
-            localStorage.setItem("wishlist", JSON.stringify(wishList));
-            });
-        //   loading stay wishlist button
-            $(".wishlist-card").each(function () {
-            let product_id = $(this)
-                .find(".add_wishlist, .close_wishlist")
-                .data("product_id");
-
-            let wishList = JSON.parse(localStorage.getItem("wishlist") || "[]");
-            if (wishList.includes(product_id)) {
-                $(this).find(".add_wishlist").addClass("hidden");
-                $(this).find(".close_wishlist").removeClass("hidden");
-            }
-            });
-        });
-  </script>
+    
